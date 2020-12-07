@@ -5,6 +5,16 @@
 
 trigger:
 - main
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure 订阅 1 (599bd0dd-2822-4342-970e-219524447383)'
+    appType: 'webApp'
+    WebAppName: 'mywebapp10676'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'AzureTutorial'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 pool:
   vmImage: 'ubuntu-latest'
